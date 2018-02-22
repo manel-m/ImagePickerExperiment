@@ -20,8 +20,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     @IBAction func pickAnImage(_ sender: Any) {
         let pickController = UIImagePickerController()
+        pickController.delegate = self
         present(pickController, animated: true, completion: nil)
     }
+    func imagePickerController(_: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info["UIImagePickerControllerOriginalImage"] as? UIImage {
+            imagePickerView.image = image
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+        
+    }
+
     
     
     
