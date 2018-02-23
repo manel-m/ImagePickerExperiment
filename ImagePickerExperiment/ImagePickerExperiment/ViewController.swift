@@ -8,15 +8,35 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var imagePickerView: UIImageView!
-    
     @IBOutlet weak var cameraButton: UIBarButtonItem!
-    
+    @IBOutlet weak var topTextField: UITextField!
+    @IBOutlet weak var bottonTextField: UITextField!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        topTextField.text = "TOP"
+        bottonTextField.text = "BOTTOM"
+        topTextField.textAlignment = .center
+        bottonTextField.textAlignment = .center
+        topTextField.delegate = self
+        bottonTextField.delegate = self
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField.text == "TOP" || textField.text == "BOTTOM" {
+        textField.text = ""
+    }
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
     }
     
     @IBAction func pickAnImageFromCamera(_ sender: Any) {
@@ -26,9 +46,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         present(imagePicker, animated: true, completion: nil)
         
     }
-    override func viewWillAppear(_ animated: Bool) {
-         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
-    }
+   
     @IBAction func pickAnImageFromAlbum(_ sender: Any) {
         let pickController = UIImagePickerController()
         pickController.delegate = self
