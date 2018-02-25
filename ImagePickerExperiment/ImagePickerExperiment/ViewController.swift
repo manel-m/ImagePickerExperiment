@@ -25,6 +25,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         bottonTextField.delegate = self
     }
     
+    
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField.text == "TOP" || textField.text == "BOTTOM" {
         textField.text = ""
@@ -37,6 +39,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewWillAppear(_ animated: Bool) {
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+        let memeTextAttributes:[String:Any] = [
+            NSAttributedStringKey.strokeColor.rawValue: UIColor.black,
+            NSAttributedStringKey.foregroundColor.rawValue: UIColor.white,
+            NSAttributedStringKey.font.rawValue: UIFont(name: "HelveticaNeue-CondensedBlack", size: 30)!,
+            NSAttributedStringKey.strokeWidth.rawValue: 6.0]
+        topTextField.defaultTextAttributes = memeTextAttributes
+        bottonTextField.defaultTextAttributes = memeTextAttributes
     }
     
     @IBAction func pickAnImageFromCamera(_ sender: Any) {
