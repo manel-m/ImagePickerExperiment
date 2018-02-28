@@ -14,7 +14,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottonTextField: UITextField!
-
+    @IBOutlet weak var shareButton: UIBarButtonItem!
+    
+    @IBOutlet weak var navbar: UIToolbar!
+    @IBOutlet weak var toolbar: UIToolbar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         topTextField.text = "TOP"
@@ -23,6 +27,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         bottonTextField.textAlignment = .center
         topTextField.delegate = self
         bottonTextField.delegate = self
+        shareButton.isEnabled = false
+        
+        
     }
     
     
@@ -99,11 +106,33 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         present(pickController, animated: true, completion: nil)
     }
     
+    @IBAction func cancel(_ sender: Any) {
+        
+    }
+    
+    @IBAction func share(_ sender: Any) {
+        let memedImage = generateMemedImage()
+        let activityView = UIActivityViewController (activityItems: [memedImage], applicationActivities: nil)
+        activityView.completionWithItemsHandler = {
+            (activity, success, items, error) in
+            if(success && error == nil){
+                self.save()
+                self.dismiss(animated: true, completion: nil);
+            }
+            else if (error != nil){
+                //log the error
+            }
+        };
+        present(activityView, animated: true, completion: nil)
+        
+        
+    }
     func imagePickerController(_: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info["UIImagePickerControllerOriginalImage"] as? UIImage {
             imagePickerView.image = image
         }
         dismiss(animated: true, completion: nil)
+        shareButton.isEnabled = true
     }
     
     func imagePickerControllerDidCancel(_: UIImagePickerController) {
@@ -120,15 +149,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func generateMemedImage() -> UIImage {
         
-        // TODO: Hide toolbar and navbar
-
+        navbar.isHidden = true
+        toolbar.isHidden = true
+        
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
         let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
-        // TODO: Show toolbar and navbar
+
+        navbar.isHidden = false
+        toolbar.isHidden = false
 
         return memedImage
     }
