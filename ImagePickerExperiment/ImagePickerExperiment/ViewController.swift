@@ -110,5 +110,33 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         dismiss(animated: true, completion: nil)
         
     }
+
+    struct Meme {
+        var  topText: String
+        var  bottomText: String
+        var  originalImage: UIImage
+        var  memedImage: UIImage
+    }
+    
+    func generateMemedImage() -> UIImage {
+        
+        // TODO: Hide toolbar and navbar
+
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
+        let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        // TODO: Show toolbar and navbar
+
+        return memedImage
+    }
+    func save() {
+        let memedImage = generateMemedImage()
+        // Create the meme
+        let meme = Meme(topText: topTextField.text!, bottomText: bottonTextField.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
+    }
+ 
 }
 
