@@ -23,12 +23,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="center" semanticContentAttribute="playback" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GD4-f4-JKc">
-                                <rect key="frame" x="19" y="62" width="337" height="555"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GD4-f4-JKc">
+                                <rect key="frame" x="19" y="67" width="346" height="533"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zjt-Ye-rIi">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zjt-Ye-rIi">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <barButtonItem title="Album" width="161.5" id="2fO-Oh-UW5">
                                         <connections>
@@ -42,24 +43,17 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <textField contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" borderStyle="roundedRect" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="uZb-JS-Tzy" userLabel="TOP textfield">
-                                <rect key="frame" x="134" y="90" width="117" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
-                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" borderStyle="roundedRect" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="2VN-S5-GKT" userLabel="BOTTOM textfield">
-                                <rect key="frame" x="130" y="554" width="121" height="30"/>
+                                <rect key="frame" x="127" y="535" width="121" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l7v-zb-rbw">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l7v-zb-rbw">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <barButtonItem title="Share" width="171.5" id="s9Z-9L-epg">
                                         <connections>
@@ -73,18 +67,16 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <textField contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" borderStyle="roundedRect" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="uZb-JS-Tzy" userLabel="TOP textfield">
+                                <rect key="frame" x="129" y="102" width="117" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="GD4-f4-JKc" firstAttribute="top" secondItem="l7v-zb-rbw" secondAttribute="bottom" id="6y6-PV-xhA"/>
-                            <constraint firstItem="Zjt-Ye-rIi" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Be3-bZ-kKH"/>
-                            <constraint firstItem="l7v-zb-rbw" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Go6-Lp-cgv"/>
-                            <constraint firstItem="l7v-zb-rbw" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Mqh-S9-cNm"/>
-                            <constraint firstItem="l7v-zb-rbw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="PfH-d0-RPC"/>
-                            <constraint firstItem="Zjt-Ye-rIi" firstAttribute="top" secondItem="GD4-f4-JKc" secondAttribute="bottom" constant="293" id="Ukt-86-ANc"/>
-                            <constraint firstItem="Zjt-Ye-rIi" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="YLF-rr-voi"/>
-                            <constraint firstItem="Zjt-Ye-rIi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="tWa-fl-pBM"/>
-                        </constraints>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>

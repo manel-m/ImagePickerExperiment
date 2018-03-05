@@ -37,7 +37,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField.text == "TOP" || textField.text == "BOTTOM" {
         textField.text = ""
-    }
+        }
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
@@ -79,9 +79,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     @objc func keyboardWillHide (_ notification:Notification) {
-        //if bottonTextField.isFirstResponder {
             view.frame.origin.y = 0
-        //}
     }
     
     func getKeyboardHeight(_ notification:Notification) -> CGFloat {
@@ -107,7 +105,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func cancel(_ sender: Any) {
-        
+        topTextField.text = "TOP"
+        bottonTextField.text = "BOTTOM"
+        topTextField.textAlignment = .center
+        bottonTextField.textAlignment = .center
+        topTextField.delegate = self
+        bottonTextField.delegate = self
+        shareButton.isEnabled = false
+        imagePickerView.image = nil
     }
     
     @IBAction func share(_ sender: Any) {
@@ -129,6 +134,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     func imagePickerController(_: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info["UIImagePickerControllerOriginalImage"] as? UIImage {
+           // imagePickerView.contentMode = .scaleAspectFit
             imagePickerView.image = image
         }
         dismiss(animated: true, completion: nil)
@@ -158,7 +164,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
-
         navbar.isHidden = false
         toolbar.isHidden = false
 
