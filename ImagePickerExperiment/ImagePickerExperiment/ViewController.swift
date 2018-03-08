@@ -27,8 +27,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         topTextField.delegate = self
         bottonTextField.delegate = self
         shareButton.isEnabled = false
-//        self.topTextField.adjustsFontSizeToFitWidth = true
-//        bottonTextField.adjustsFontSizeToFitWidth = true
+        topTextField.adjustsFontSizeToFitWidth = true
+        bottonTextField.adjustsFontSizeToFitWidth = true
       
         
     }
