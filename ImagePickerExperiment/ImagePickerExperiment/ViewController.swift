@@ -50,9 +50,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             NSAttributedStringKey.strokeColor.rawValue: UIColor.black,
             NSAttributedStringKey.foregroundColor.rawValue: UIColor.white,
             NSAttributedStringKey.font.rawValue: UIFont(name: "HelveticaNeue-CondensedBlack", size: 30)!,
-            NSAttributedStringKey.strokeWidth.rawValue: 6.0]
+            NSAttributedStringKey.strokeWidth.rawValue: -6.0]
         topTextField.defaultTextAttributes = memeTextAttributes
         bottonTextField.defaultTextAttributes = memeTextAttributes
+        topTextField.textColor = UIColor.white
         subscribeToKeyboardNotifications()
         
     }
