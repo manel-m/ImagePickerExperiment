@@ -20,6 +20,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        textfieldSpecifications()
+        
+    }
+    func textfieldSpecifications () {
         topTextField.text = "TOP"
         bottonTextField.text = "BOTTOM"
         topTextField.textAlignment = .center
@@ -29,7 +33,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         shareButton.isEnabled = false
         topTextField.adjustsFontSizeToFitWidth = true
         bottonTextField.adjustsFontSizeToFitWidth = true
-      
         
     }
     
@@ -107,14 +110,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     // Cancel button: the Meme Editor View returns to its launch state
     @IBAction func cancel(_ sender: Any) {
-        topTextField.text = "TOP"
-        bottonTextField.text = "BOTTOM"
-        topTextField.textAlignment = .center
-        bottonTextField.textAlignment = .center
-        topTextField.delegate = self
-        bottonTextField.delegate = self
-        shareButton.isEnabled = false
-        imagePickerView.image = nil
+        textfieldSpecifications()
     }
     
     // Sharing a Meme using an Activity View
