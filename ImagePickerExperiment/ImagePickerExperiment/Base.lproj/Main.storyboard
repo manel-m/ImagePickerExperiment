@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,60 +24,78 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GD4-f4-JKc">
-                                <rect key="frame" x="19" y="67" width="346" height="533"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GD4-f4-JKc">
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
                             </imageView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zjt-Ye-rIi">
-                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l7v-zb-rbw">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
-                                    <barButtonItem title="Album" width="161.5" id="2fO-Oh-UW5">
-                                        <connections>
-                                            <action selector="pickAnImageFromAlbum:" destination="BYZ-38-t0r" id="19k-qM-fL0"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem title="Camera" width="225" id="UES-Hg-Scr">
-                                        <connections>
-                                            <action selector="pickAnImageFromCamera:" destination="BYZ-38-t0r" id="UAt-Yj-Utu"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" borderStyle="roundedRect" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="2VN-S5-GKT" userLabel="BOTTOM textfield">
-                                <rect key="frame" x="127" y="535" width="121" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
-                            </textField>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l7v-zb-rbw">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <barButtonItem title="Share" width="171.5" id="s9Z-9L-epg">
+                                    <barButtonItem title="Share" width="42" id="s9Z-9L-epg">
                                         <connections>
                                             <action selector="share:" destination="BYZ-38-t0r" id="Qtd-f9-1pC"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="Cancel" width="316" id="a5X-9L-YEl">
+                                    <barButtonItem systemItem="flexibleSpace" id="a5X-9L-YEl">
                                         <connections>
                                             <action selector="cancel:" destination="BYZ-38-t0r" id="hbI-E8-UhM"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem title="Cancel" id="gh6-38-PZ3">
+                                        <connections>
+                                            <action selector="cancel:" destination="BYZ-38-t0r" id="GYD-KI-VGC"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
-                            <textField contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" borderStyle="roundedRect" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="uZb-JS-Tzy" userLabel="TOP textfield">
-                                <rect key="frame" x="129" y="102" width="117" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Zjt-Ye-rIi">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="NHO-oc-URW"/>
+                                    <barButtonItem title="Album" width="42" id="2fO-Oh-UW5">
+                                        <connections>
+                                            <action selector="pickAnImageFromAlbum:" destination="BYZ-38-t0r" id="19k-qM-fL0"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Camera" width="42" id="UES-Hg-Scr">
+                                        <connections>
+                                            <action selector="pickAnImageFromCamera:" destination="BYZ-38-t0r" id="UAt-Yj-Utu"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="j1A-pp-RWm"/>
+                                </items>
+                            </toolbar>
+                            <textField contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="uZb-JS-Tzy" userLabel="TOP textfield">
+                                <rect key="frame" x="168" y="162" width="39" height="20"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="2VN-S5-GKT" userLabel="BOTTOM textfield">
+                                <rect key="frame" x="148" y="480" width="78" height="20"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="l7v-zb-rbw" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="2Ef-XC-fCo"/>
+                            <constraint firstItem="GD4-f4-JKc" firstAttribute="top" secondItem="l7v-zb-rbw" secondAttribute="bottom" id="C9P-SC-kVw"/>
+                            <constraint firstItem="GD4-f4-JKc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="CFJ-Iw-alq"/>
+                            <constraint firstItem="l7v-zb-rbw" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="DyQ-9S-myI"/>
+                            <constraint firstItem="uZb-JS-Tzy" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-161.5" id="KiH-m5-ndQ"/>
+                            <constraint firstItem="2VN-S5-GKT" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="156.5" id="N3n-hQ-g0D"/>
+                            <constraint firstItem="Zjt-Ye-rIi" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Oj1-8y-9nb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GD4-f4-JKc" secondAttribute="trailing" id="VLj-LU-nlU"/>
+                            <constraint firstItem="uZb-JS-Tzy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WQP-Ld-aaj"/>
+                            <constraint firstItem="Zjt-Ye-rIi" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Y9E-xS-ftA"/>
+                            <constraint firstItem="2VN-S5-GKT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="b4o-90-6St"/>
+                            <constraint firstItem="l7v-zb-rbw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="kCO-si-5zk"/>
+                            <constraint firstItem="Zjt-Ye-rIi" firstAttribute="top" secondItem="GD4-f4-JKc" secondAttribute="bottom" id="l4U-YE-AKA"/>
+                            <constraint firstItem="Zjt-Ye-rIi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="tyD-lY-9e1"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>

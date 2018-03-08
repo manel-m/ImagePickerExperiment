@@ -1,10 +1,16 @@
-do camcel button DONE DONE 
+MUST
+do cancel button DONE DONE 
 re do album button UIViewController for resize image DONE DONE 
-add comment 
-landscape orientations 
-do constraints
+add comment  DONE DONE 
+do constraints for toolbar and nav bar DONE 
+do constraint for top and bottom textfield DONE 
+size of textfield  DONE DONE 
+landscape orientations DONE DONE
+
+color of top and bottom top and bottom textfield 
+ 
 The app has a social share button that uses the “Action” icon built into iOS.
+
+
+OPTIONAL
 add pictures in supporting materials
-
-
-
