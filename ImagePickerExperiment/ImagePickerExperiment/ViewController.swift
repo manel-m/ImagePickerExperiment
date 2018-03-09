@@ -90,18 +90,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     // Camera button for Picking Image from Camera
     @IBAction func pickAnImageFromCamera(_ sender: Any) {
-        let imagePicker = UIImagePickerController ()
-        imagePicker.delegate = self
-        imagePicker.sourceType = .camera
-        present(imagePicker, animated: true, completion: nil)
+        pickControl(.camera)
         
     }
    // Album button for picking Image from Album
     @IBAction func pickAnImageFromAlbum(_ sender: Any) {
-        let pickController = UIImagePickerController()
-        pickController.delegate = self
-        pickController.sourceType = .photoLibrary
-        present(pickController, animated: true, completion: nil)
+     pickControl(.photoLibrary)
+    }
+    func pickControl (_ type: UIImagePickerControllerSourceType){
+        let imagePicker = UIImagePickerController ()
+        imagePicker.delegate = self
+        imagePicker.sourceType = type
+        present(imagePicker, animated: true, completion: nil)
     }
     // Cancel button: the Meme Editor View returns to its launch state
     @IBAction func cancel(_ sender: Any) {
@@ -140,14 +140,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // Cancel button of image picker controller
     func imagePickerControllerDidCancel(_: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
-    }
-    
-    // the Meme model
-    struct Meme {
-        var  topText: String
-        var  bottomText: String
-        var  originalImage: UIImage
-        var  memedImage: UIImage
     }
     
     func generateMemedImage() -> UIImage {
