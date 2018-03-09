@@ -24,6 +24,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
 
     func initTextField (_ textField : UITextField, text : String) {
+        let memeTextAttributes:[String:Any] = [
+            NSAttributedStringKey.strokeColor.rawValue: UIColor.black,
+            NSAttributedStringKey.foregroundColor.rawValue: UIColor.white,
+            NSAttributedStringKey.font.rawValue: UIFont(name: "HelveticaNeue-CondensedBlack", size: 30)!,
+            NSAttributedStringKey.strokeWidth.rawValue: -6.0]
+        textField.defaultTextAttributes = memeTextAttributes
         textField.text = text
         textField.textAlignment = .center
         textField.delegate = self
@@ -44,14 +50,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewWillAppear(animated)
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         // Setting font style and color
-        let memeTextAttributes:[String:Any] = [
-            NSAttributedStringKey.strokeColor.rawValue: UIColor.black,
-            NSAttributedStringKey.foregroundColor.rawValue: UIColor.white,
-            NSAttributedStringKey.font.rawValue: UIFont(name: "HelveticaNeue-CondensedBlack", size: 30)!,
-            NSAttributedStringKey.strokeWidth.rawValue: -6.0]
-        topTextField.defaultTextAttributes = memeTextAttributes
-        bottonTextField.defaultTextAttributes = memeTextAttributes
-        topTextField.textColor = UIColor.white
         initTextField(topTextField, text: "TOP")
         initTextField(bottonTextField, text: "BOTTOM")
         subscribeToKeyboardNotifications()
@@ -69,8 +67,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func unsubscribeFromKeyboardNotifications() {
-        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.removeObserver(self)
     }
     // move the view up when the keyboard up
     @objc func keyboardWillShow(_ notification:Notification) {
@@ -121,9 +118,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 self.save()
                 self.dismiss(animated: true, completion: nil);
             }
-            else if (error != nil){
-                //log the error
-            }
         }
         present(activityView, animated: true, completion: nil)
     }
@@ -141,20 +135,20 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerControllerDidCancel(_: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
+    func hideTopAndBottomBars(_ hide: Bool) {
+        navbar.isHidden = hide
+        toolbar.isHidden = hide
+    }
     
     func generateMemedImage() -> UIImage {
         
-        // hide navbar and toolbar
-        navbar.isHidden = true
-        toolbar.isHidden = true
+        hideTopAndBottomBars(true)
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
         let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
-        // show navbar and toolbar
-        navbar.isHidden = false
-        toolbar.isHidden = false
+        hideTopAndBottomBars(false)
         return memedImage
     }
     func save() {

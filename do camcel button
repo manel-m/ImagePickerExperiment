@@ -16,26 +16,13 @@ The app has a social share button that uses the “Action” icon built into iOS
 
 
 to do for Requires Changes:
- 1… Potentially repetitive blocks of code are effectively abstracted into reusable methods   =======>>>>>>>> UIImagePickerControllerSourceType
-2…. struct Meme in new file 
+ 1… Potentially repetitive blocks of code are effectively abstracted into reusable methods   =======>>>>>>>> UIImagePickerControllerSourceType DONE DONE 
+2…. struct Meme in new file DONE DONE 
 
 3…. function that takes a textfield as an argument? :) DONE DONE 
 4…. center textfield DONE DONE 
 
 
 
-   @IBAction func pickAnImageFromCamera(_ sender: Any) {
-        let imagePicker = UIImagePickerController ()
-        imagePicker.delegate = self
-        imagePicker.sourceType = .camera
-        present(imagePicker, animated: true, completion: nil)
-        
-    }
-   // Album button for picking Image from Album
-    @IBAction func pickAnImageFromAlbum(_ sender: Any) {
-        let pickController = UIImagePickerController()
-        pickController.delegate = self
-        pickController.sourceType = .photoLibrary
-        present(pickController, animated: true, completion: nil)
-    }
+ 
 
