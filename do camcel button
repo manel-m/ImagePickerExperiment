@@ -12,5 +12,13 @@ color of top and bottom top and bottom textfield DONE
 The app has a social share button that uses the “Action” icon built into iOS. DONE
 
 
-OPTIONAL
-add pictures in supporting materials
+
+
+
+to do for Requires Changes:
+ 1… Potentially repetitive blocks of code are effectively abstracted into reusable methods   =======>>>>>>>> UIImagePickerControllerSourceType
+2…. struct Meme in new file 
+
+3…. function that takes a textfield as an argument? :)
+4…. center textfield 
+

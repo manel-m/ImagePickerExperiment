@@ -20,25 +20,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textfieldSpecifications()
-        
-    }
-    func textfieldSpecifications () {
-        topTextField.text = "TOP"
-        bottonTextField.text = "BOTTOM"
-        topTextField.textAlignment = .center
-        bottonTextField.textAlignment = .center
-        topTextField.delegate = self
-        bottonTextField.delegate = self
         shareButton.isEnabled = false
-        topTextField.adjustsFontSizeToFitWidth = true
-        bottonTextField.adjustsFontSizeToFitWidth = true
-        
+    }
+
+    func initTextField (_ textField : UITextField, text : String) {
+        textField.text = text
+        textField.textAlignment = .center
+        textField.delegate = self
+        textField.adjustsFontSizeToFitWidth = true
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField.text == "TOP" || textField.text == "BOTTOM" {
-        textField.text = ""
+            textField.text = ""
         }
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -47,6 +41,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         // Setting font style and color
         let memeTextAttributes:[String:Any] = [
@@ -57,17 +52,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         topTextField.defaultTextAttributes = memeTextAttributes
         bottonTextField.defaultTextAttributes = memeTextAttributes
         topTextField.textColor = UIColor.white
+        initTextField(topTextField, text: "TOP")
+        initTextField(bottonTextField, text: "BOTTOM")
         subscribeToKeyboardNotifications()
-        
     }
+    
     // Code for Keyboard Adjustments
     override func viewWillDisappear(_ animated: Bool) {
-        
         super.viewWillDisappear(animated)
         unsubscribeFromKeyboardNotifications()
     }
+    
     func subscribeToKeyboardNotifications() {
-        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
     }
@@ -88,9 +84,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func getKeyboardHeight(_ notification:Notification) -> CGFloat {
-        
         let userInfo = notification.userInfo
-        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue // of CGRect
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
         return keyboardSize.cgRectValue.height
     }
     // Camera button for Picking Image from Camera
@@ -110,7 +105,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     // Cancel button: the Meme Editor View returns to its launch state
     @IBAction func cancel(_ sender: Any) {
-        textfieldSpecifications()
+        initTextField(topTextField, text: "TOP")
+        initTextField(bottonTextField, text: "BOTTOM")
+        imagePickerView.image = nil
+        shareButton.isEnabled = false
     }
     
     // Sharing a Meme using an Activity View
@@ -126,7 +124,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             else if (error != nil){
                 //log the error
             }
-        };
+        }
         present(activityView, animated: true, completion: nil)
     }
     // launch Image Picker Controller
@@ -142,7 +140,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // Cancel button of image picker controller
     func imagePickerControllerDidCancel(_: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
-        
     }
     
     // the Meme model
@@ -158,7 +155,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // hide navbar and toolbar
         navbar.isHidden = true
         toolbar.isHidden = true
-        
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
@@ -167,7 +163,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // show navbar and toolbar
         navbar.isHidden = false
         toolbar.isHidden = false
-
         return memedImage
     }
     func save() {
