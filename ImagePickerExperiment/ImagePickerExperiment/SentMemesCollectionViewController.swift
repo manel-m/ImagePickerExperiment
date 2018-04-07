@@ -14,13 +14,27 @@ class SentMemesCollectionViewController : UICollectionViewController {
         let appDelegate = object as! AppDelegate
         return appDelegate.memes
     }
-    
+  
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
+        collectionView?.reloadData()
     }
+    
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.memes.count
+    }
+
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MemeCollectionViewCell", for: indexPath) as! MemeCollectionViewCell
+        let meme = self.memes[(indexPath as NSIndexPath).row]
+        // Set the image
+        cell.MemeImageView?.image =  meme.memedImage
+        
+        return cell
     }
     
     

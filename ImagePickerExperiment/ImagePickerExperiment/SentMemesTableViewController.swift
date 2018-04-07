@@ -9,10 +9,7 @@
 import Foundation
 import  UIKit
 class SentMemesTableViewController : UITableViewController {
-    
-    
-   
-    
+
     var memes : [Meme]! {
         let object = UIApplication.shared.delegate
         let appDelegate = object as! AppDelegate
@@ -31,14 +28,10 @@ class SentMemesTableViewController : UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MemeCell")!
         let meme = self.memes[(indexPath as NSIndexPath).row]
         
-        // Set the name and image
+        // Set the text and image
         cell.textLabel?.text = meme.topText + "..." + meme.bottomText
         cell.imageView?.image = meme.memedImage
-        
-        // If the cell has a detail label, we will put the evil scheme in.
-//        if let detailTextLabel = cell.detailTextLabel {
-//            detailTextLabel.text = "Scheme: \(meme.evilScheme)"
-//        }
+
         
         return cell
     }
