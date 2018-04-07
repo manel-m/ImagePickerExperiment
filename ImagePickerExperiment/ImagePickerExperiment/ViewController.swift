@@ -127,6 +127,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
            // imagePickerView.contentMode = .scaleAspectFit
             imagePickerView.image = image
         }
+
         dismiss(animated: true, completion: nil)
         shareButton.isEnabled = true
     }
@@ -155,6 +156,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let memedImage = generateMemedImage()
         // Create the meme
         let meme = Meme(topText: topTextField.text!, bottomText: bottonTextField.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
+        // Add it to the memes array in the Application Delegate
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.memes.append(meme)
     }
  
 }

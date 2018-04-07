@@ -1,0 +1,27 @@
+//
+//  SentMemesCollectionViewController.swift
+//  ImagePickerExperiment
+//
+//  Created by Manel matougui on 4/6/18.
+//  Copyright © 2018 udacity. All rights reserved.
+//
+
+import Foundation
+import UIKit
+class SentMemesCollectionViewController : UICollectionViewController {
+    var memes : [Meme]! {
+        let object = UIApplication.shared.delegate
+        let appDelegate = object as! AppDelegate
+        return appDelegate.memes
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.memes.count
+    }
+    
+    
+}

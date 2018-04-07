@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 // the Meme model
+
 struct Meme {
     var  topText: String
     var  bottomText: String
