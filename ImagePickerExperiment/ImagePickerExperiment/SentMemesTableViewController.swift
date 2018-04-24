@@ -15,6 +15,10 @@ class SentMemesTableViewController : UITableViewController {
         let appDelegate = object as! AppDelegate
         return appDelegate.memes
     }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationItem.title = "Sent Memes"
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView!.reloadData()
@@ -31,9 +35,16 @@ class SentMemesTableViewController : UITableViewController {
         // Set the text and image
         cell.textLabel?.text = meme.topText + "..." + meme.bottomText
         cell.imageView?.image = meme.memedImage
-
-        
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+     let detailController = self.storyboard!.instantiateViewController(withIdentifier: "MemeDetailView") as! MemeDetailView
+        detailController.meme = self.memes[(indexPath as NSIndexPath).row]
+        self.navigationController!.pushViewController(detailController, animated: true)
+        
+        
+        
     }
  
     

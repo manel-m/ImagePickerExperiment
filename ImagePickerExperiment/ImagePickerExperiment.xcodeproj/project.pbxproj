@@ -16,6 +16,7 @@
 		99F7DAD3207848CB00495932 /* SentMemesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F7DAD2207848CB00495932 /* SentMemesTableViewController.swift */; };
 		99F7DAD52078824B00495932 /* SentMemesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F7DAD42078824B00495932 /* SentMemesCollectionViewController.swift */; };
 		99F7DAD7207882E200495932 /* MemeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F7DAD6207882E200495932 /* MemeCollectionViewCell.swift */; };
+		99F7DAD9208FE7F500495932 /* MemeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F7DAD8208FE7F500495932 /* MemeDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		99F7DAD2207848CB00495932 /* SentMemesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentMemesTableViewController.swift; sourceTree = "<group>"; };
 		99F7DAD42078824B00495932 /* SentMemesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentMemesCollectionViewController.swift; sourceTree = "<group>"; };
 		99F7DAD6207882E200495932 /* MemeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeCollectionViewCell.swift; sourceTree = "<group>"; };
+		99F7DAD8208FE7F500495932 /* MemeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				9932C44D203E4BAC002BDCC4 /* ViewController.swift */,
 				99F7DAD2207848CB00495932 /* SentMemesTableViewController.swift */,
 				99F7DAD42078824B00495932 /* SentMemesCollectionViewController.swift */,
+				99F7DAD8208FE7F500495932 /* MemeDetailView.swift */,
 				99F7DAD6207882E200495932 /* MemeCollectionViewCell.swift */,
 				9932C44F203E4BAC002BDCC4 /* Main.storyboard */,
 				9932C452203E4BAC002BDCC4 /* Assets.xcassets */,
@@ -154,6 +157,7 @@
 				9932C44E203E4BAC002BDCC4 /* ViewController.swift in Sources */,
 				99F7DAD7207882E200495932 /* MemeCollectionViewCell.swift in Sources */,
 				9932C44C203E4BAC002BDCC4 /* AppDelegate.swift in Sources */,
+				99F7DAD9208FE7F500495932 /* MemeDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

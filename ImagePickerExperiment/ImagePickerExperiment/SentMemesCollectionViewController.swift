@@ -14,7 +14,6 @@ class SentMemesCollectionViewController : UICollectionViewController {
         let appDelegate = object as! AppDelegate
         return appDelegate.memes
     }
-    
     @IBOutlet weak var flawLayout: UICollectionViewFlowLayout!
     
   
@@ -25,6 +24,7 @@ class SentMemesCollectionViewController : UICollectionViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Sent Memes"
         //flowLayout
         let space: CGFloat = 3.0
         let dimension = (view.frame.size.width - (2 * space)) / 3.0
@@ -49,6 +49,17 @@ class SentMemesCollectionViewController : UICollectionViewController {
         cell.MemeImageView?.image =  meme.memedImage
         
         return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath:IndexPath) {
+        
+        let detailController = self.storyboard!.instantiateViewController(withIdentifier: "MemeDetailView") as! MemeDetailView
+        
+        //Populate view controller with data from the selected item
+        detailController.meme = self.memes[(indexPath as NSIndexPath).row]
+        
+        // Present the view controller using navigation
+        navigationController!.pushViewController(detailController, animated: true)
     }
     
     
