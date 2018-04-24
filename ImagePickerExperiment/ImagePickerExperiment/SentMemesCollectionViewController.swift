@@ -14,11 +14,25 @@ class SentMemesCollectionViewController : UICollectionViewController {
         let appDelegate = object as! AppDelegate
         return appDelegate.memes
     }
+    
+    @IBOutlet weak var flawLayout: UICollectionViewFlowLayout!
+    
   
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
         collectionView?.reloadData()
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //flowLayout
+        let space: CGFloat = 3.0
+        let dimension = (view.frame.size.width - (2 * space)) / 3.0
+        
+        flawLayout.minimumInteritemSpacing = space
+        flawLayout.minimumLineSpacing = space
+        flawLayout.itemSize = CGSize(width: dimension, height: dimension)
+        
     }
     
     

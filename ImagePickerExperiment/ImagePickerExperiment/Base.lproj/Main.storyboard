@@ -71,7 +71,16 @@
                             <outlet property="delegate" destination="o6g-Io-5AH" id="wZx-Ct-MrB"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="VGo-dR-VKc"/>
+                    <navigationItem key="navigationItem" id="VGo-dR-VKc">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="Fzj-cZ-DUz">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="showDetail" id="WeD-L7-fir"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="flawLayout" destination="n9H-VD-Hcr" id="nRm-Xu-red"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mCe-Nb-GpW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -262,7 +271,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="863" y="-142"/>
+            <point key="canvasLocation" x="822" y="-267"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="WeD-L7-fir"/>
+    </inferredMetricsTieBreakers>
 </document>
