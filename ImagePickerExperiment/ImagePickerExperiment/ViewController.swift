@@ -100,14 +100,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         imagePicker.sourceType = type
         present(imagePicker, animated: true, completion: nil)
     }
-    // Cancel button: the Meme Editor View returns to its launch state
-//    @IBAction func cancel(_ sender: Any) {
-//        initTextField(topTextField, text: "TOP")
-//        initTextField(bottonTextField, text: "BOTTOM")
-//        imagePickerView.image = nil
-//        shareButton.isEnabled = false
-//    }
-//    
+    
+    @IBAction func cancel(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+   
     // Sharing a Meme using an Activity View
     @IBAction func share(_ sender: Any) {
         let memedImage = generateMemedImage()

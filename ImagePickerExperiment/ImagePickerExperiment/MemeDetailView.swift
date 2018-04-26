@@ -12,12 +12,12 @@ class MemeDetailView : UIViewController {
     var meme : Meme!
 
     
-    
     @IBOutlet weak var imageView: UIImageView!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.imageView!.image = meme.memedImage
+        //self.navbar
         
         
     }
