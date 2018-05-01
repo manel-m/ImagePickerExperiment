@@ -122,7 +122,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // launch Image Picker Controller
     func imagePickerController(_: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info["UIImagePickerControllerOriginalImage"] as? UIImage {
-           // imagePickerView.contentMode = .scaleAspectFit
+            imagePickerView.contentMode = .scaleAspectFit
             imagePickerView.image = image
         }
 
@@ -130,7 +130,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         shareButton.isEnabled = true
     }
     
-    // Cancel button of image picker controller
     func imagePickerControllerDidCancel(_: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
